@@ -10,37 +10,41 @@ from keras.layers import Dense
 import record_statistic as stats
 import initialization as init
 from sklearn.metrics import precision_recall_fscore_support
-
+from sklearn.model_selection import train_test_split
+from keras.models import load_model
 
 stat = stats.RecordStatistic(init._db)
 stat.convert_to_log10()
-X, Y = stat.get_selected_features()
-# fix random seed for reproducibility
+X, y = stat.get_selected_features()
 
-# load pima indians dataset
-#dataset = numpy.loadtxt("pima-indians-diabetes.csv", delimiter=",")
-# split into input (X) and output (Y) variables
-#X = dataset[:,0:8]
-#Y = dataset[:,8]
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.1)
 
 # create model
 model = Sequential()
 model.add(Dense(12, input_dim=5, activation='relu'))
-model.add(Dense(8, activation='relu'))
+model.add(Dense(16, activation='relu'))
 model.add(Dense(1, activation='sigmoid'))
 
 # Compile model
 model.compile(loss='binary_crossentropy', optimizer='adam', metrics=['accuracy'])
 
 # Fit the model
-model.fit(X, Y, epochs=50, batch_size=10)
+model.fit(X_train, y_train, epochs=150, batch_size=10)
 
 # evaluate the model
-scores = model.evaluate(X, Y)
+scores = model.evaluate(X_test, y_test)
 print("\n%s: %.2f%%" % (model.metrics_names[1], scores[1]*100))
-Y_pred = model.predict_classes(X)
+y_pred = model.predict_classes(X_test)
 
-precision, recall, fbeta_score, support = precision_recall_fscore_support(Y, Y_pred, average='macro')
+precision, recall, fbeta_score, support = precision_recall_fscore_support(y_test, y_pred, average='macro')
 print('precision=',precision)
 print('recall=',recall)
 print('fbeta_score=',fbeta_score)
+
+MODEL_PATH = init.MODEL_DIR + init.format_file_name('neural_network_model', 'h5')
+
+model.save(MODEL_PATH)
+
+loaded_model = load_model(MODEL_PATH)
+#result = loaded_model.score(X_test, y_test)
+#print(result)
