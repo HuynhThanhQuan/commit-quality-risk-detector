@@ -43,6 +43,27 @@ class GitUtil(object):
             if type(message) == str:
                 mess_utf8 = message.encode('utf-8')
                 self.db._collection.update_one({'hash':hash_}, {"$set": {'message':mess_utf8}}, upsert=False)
+    
+    def fix_modified_lines(self):
+        for record in self.db._collection.find():
+            hash_ = record['hash']
+            commit = self.repo._repo.commit(hash_)
+            files = commit.stats.files
+            src_files = {file : info for file, info in files.items() if 'Test' not in file}
+            added_lines = 0
+            deleted_lines = 0
+            for file, info in src_files.items():
+                added_lines += info.get('insertions')
+                deleted_lines += info.get('deletions')
+            mod_lines = added_lines + deleted_lines
+            self._add_field(hash_,'mod_lines', mod_lines)
+    
+    def test(self):
+        for record in self.db._collection.find():
+            hash_ = record['hash']
+            commit = self.repo._repo.commit(hash_)
+            if record['label'] == 'bug':
+                print(commit.committed_date - commit.authored_date, record['label'])
 
 if __name__=='__main__':
     repository = init._repo
@@ -51,4 +72,5 @@ if __name__=='__main__':
     util = GitUtil(repository, database)
     #util._add_extra_info()
     #util.clean_message()
+    #util.fix_modified_lines()
 

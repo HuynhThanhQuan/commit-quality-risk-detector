@@ -14,7 +14,7 @@ db = init._db
 repo = init._db
 
 SUB_FOLDER = 'Snapshot\\'
-SUFFIX = '_Records_20180723'
+SUFFIX = '_Records_20180724'
 EXTENSION = '.csv'
 JSON = '_JSON'
 
@@ -73,7 +73,7 @@ if __name__ == '__main__':
     print('Warning: Database will be changed')
     print('*********************************************')
     print()
-    OWNER = 'Quan'
+    OWNER = 'Aka'
     read_and_export_csv()
     check_aggregation()
-    update_dabase()
+    #update_dabase()

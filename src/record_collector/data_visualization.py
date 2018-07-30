@@ -50,9 +50,9 @@ class DataVisualization(object):
         
     def joint_plot(self, x, y):
         self.convert_to_log10()
-        sns.jointplot(x, y, data=self.df, kind="kde", space=0, color="g")
+        sns.jointplot(x, y, data=self.df, kind="kde", space=0, color="b")
     
 if __name__ == '__main__':
     dv = DataVisualization(RECORDS)
-    #dv.box_plot(CATEGORIES[0])
+    dv.box_plot(CATEGORIES[0])
     dv.joint_plot(CATEGORIES[0], CATEGORIES[1])
