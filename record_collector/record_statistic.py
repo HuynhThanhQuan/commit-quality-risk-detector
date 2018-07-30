@@ -260,6 +260,12 @@ if __name__ == '__main__':
     stats.compare_statistic()
     #stats.plot_scatter(CATEGORIES[1], CATEGORIES[4])
     #stats.plot_scatter(CATEGORIES[3], CATEGORIES[2])
+<<<<<<< HEAD:src/record_collector/record_statistic.py
     stats.plot_aggregation_scatter_graph()
     #stats.plot_scatter_3d(CATEGORIES[1], CATEGORIES[2], CATEGORIES[0])
     #print(stats.labels)
+=======
+    #stats.plot_aggregation_scatter_graph()
+    stats.plot_scatter_3d(CATEGORIES[3], CATEGORIES[2], CATEGORIES[1])
+    print(stats.labels)
+>>>>>>> 67d4dba9f59ab2f7b153f97222f4ea5cc0681a49:record_collector/record_statistic.py
