@@ -1,0 +1,58 @@
+Topic
+	Root-cause
+		Noise in dataset
+	Solution
+		Remove noise
+		
+Implemetation
+	Get statistic 
+		
+		
+Result
+	Not practical when many samples are overlapped 
+	May lose information 
+	Cannot generalize the sample space
+---------------------------------------------------	
+Topic
+	Root-case
+		Bug-commits are so few
+	Solution			
+		Increase the bug commit data
+		
+Implemetation
+	By feelings
+
+Result	
+	Increased to 87 bug commits
+---------------------------------------------------
+Topic
+	Root-case
+		Features are not clear
+	Solution
+		Origin
+			Add another feature (apply NLP?) Natural Language Processing
+		Current
+			Scale the range of value appropriately
+
+Implemetation
+	Calculate logarithm base of 10
+	
+Result
+	Data visualization now clearer
+	Can distinguish the bug and non-bug easier
+---------------------------------------------------
+Topic
+	Root-case
+		Model selection
+	Solution
+		Use neural network
+		
+Implemetation
+	Use neural network of Keras
+	
+Result
+	acc: 93.89%
+	precision= 0.9145299145299145 		(91.45 %)
+	recall= 0.6364204604646317			
+	fbeta_score= 0.6943972835314092
+	Better than SVM

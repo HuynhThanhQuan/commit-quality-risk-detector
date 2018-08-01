@@ -1,0 +1,6 @@
+format of weekly report
+1.Plan of this week
+2.Achivement of this week
+3.Summary of retrospective.
+4.Plan of next week
+

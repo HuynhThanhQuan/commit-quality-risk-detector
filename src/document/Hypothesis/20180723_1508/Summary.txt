@@ -1,0 +1,37 @@
+Precondition
+	Pre-solution
+		Remove noise is not approriately - Causing losing data and not be able to generalize sample space
+		Applying logirithm 10 to all features - Data visualization is now better
+
+Data
+	Location
+		Server
+			10.130.110.31
+			27017
+			CommitInfo
+			RxJavaRecord2X
+	Origin
+		({'total': 5376}, {'non-bug': 1106, None: 4183, 'bug': 87})
+	Use
+		({'total': 1169}, {'non-bug': 1106, 'bug': 87})
+	
+Model
+	SVM
+		Train 		90%
+		Test		10%
+		
+	Result
+		Precision	72.05%
+		Recall		52.12%
+		Fscore		52.57%
+		Accuracy	93.85% 	on test set
+		Warning		-
+		
+	Conclusion
+		SVM model can predict bug commit but still very low
+	
+	Diagnose and solution
+		1. 	Bug-commits are so few
+				Increase the bug commit data
+		2. 	Features are not clear
+				Add another feature (apply NLP?)

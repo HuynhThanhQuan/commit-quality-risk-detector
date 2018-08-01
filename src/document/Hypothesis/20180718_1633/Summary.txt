@@ -1,0 +1,34 @@
+Data
+	Location
+		Server
+			10.130.110.31
+			27017
+			CommitInfo
+			RxJavaRecord2X
+	Origin
+		({'total': 5376}, {'non-bug': 1115, None: 4207, 'bug': 54})
+	Use
+		({'total': 1169}, {'non-bug': 1115, 'bug': 54})
+	
+Model
+	SVM
+		Train 		90%
+		Test		10%
+		
+	Result
+		Precision	47.4%
+		Recall		50.0%
+		Fscore		48.7%
+		Accuracy	94.9% 	on test set
+		Warning		UndefinedMetricWarning
+		
+	Conclusion
+		Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples
+	
+	Diagnose and solution
+		1. 	Noise in dataset
+				Remove noise
+		2. 	Bug-commits are so few
+				Increase the bug commit data
+		3. 	Features are not clear
+				Add another feature (apply NLP?)

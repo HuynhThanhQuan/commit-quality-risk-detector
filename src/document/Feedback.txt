@@ -1,0 +1,9 @@
+Preprocessing in detail?
+	
+Why chose those features?
+
+What is RxJava?
+
+Seperate Plan/Reason and Result
+
+Schedule (after prototype)

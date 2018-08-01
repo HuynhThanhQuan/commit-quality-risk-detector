@@ -1,0 +1,42 @@
+Data
+	Location
+		Server
+			10.130.110.31
+			27017
+			CommitInfo
+			RxJavaRecord2X
+	Origin
+		({'total': 5376}, {'non-bug': 1106, None: 4177, 'bug': 93})
+	Use
+		({'total': 1169}, {'non-bug': 1106, 'bug': 93})
+	
+Model
+	Neural network
+		Configuration
+			Input layer
+				5 nodes
+			Hidden layer
+				Dense(12, input_dim=5, activation='relu')
+				Dense(16, activation='relu')
+			Output layer
+				Dense(1, activation='sigmoid')
+	Dataset	
+		Train 		90%
+		Test		10%
+		
+	Result
+		Precision	0.8340480274442539 		(83.40%)
+		Recall		0.6249635419704835		(62.50%)
+		Fscore		0.673310697518444		(67.33%)
+		Accuracy	93.49457882065093 		on dataset
+		Warning		-
+		
+	Conclusion
+		Neural network's performance is better than SVM
+		Recall is still low due to so few bug commit
+	
+	Diagnose and further solution
+		1. 	Bug-commits are so few
+				Increase the bug commit data
+		2. 	Features are not clear
+				Add another feature (apply NLP?)
