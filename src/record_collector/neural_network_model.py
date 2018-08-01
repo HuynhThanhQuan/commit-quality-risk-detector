@@ -26,40 +26,26 @@ model.add(Dense(16, activation='relu'))
 model.add(Dense(1, activation='sigmoid'))
 
 # Compile model
-model.compile(loss='binary_crossentropy', optimizer='Nadam', metrics=['accuracy'])
+model.compile(loss='binary_crossentropy', optimizer='adam', metrics=['accuracy'])
 
 # Fit the model
-<<<<<<< HEAD:src/record_collector/neural_network_model.py
-model.fit(X_train, y_train, epochs=1500, batch_size=10)
-=======
-model.fit(X_train, y_train, epochs=150, batch_size=10)
->>>>>>> 67d4dba9f59ab2f7b153f97222f4ea5cc0681a49:record_collector/neural_network_model.py
+model.fit(X_train, y_train, epochs=100, batch_size=10)
 
 # evaluate the model
 scores = model.evaluate(X_test, y_test)
 print("\n%s: %.2f%%" % (model.metrics_names[1], scores[1]*100))
 y_pred = model.predict_classes(X_test)
 
-<<<<<<< HEAD:src/record_collector/neural_network_model.py
 precision, recall, fbeta_score, support = precision_recall_fscore_support(y_test, y_pred, average='binary')
-=======
-precision, recall, fbeta_score, support = precision_recall_fscore_support(y_test, y_pred, average='macro')
->>>>>>> 67d4dba9f59ab2f7b153f97222f4ea5cc0681a49:record_collector/neural_network_model.py
 print('precision=',precision)
 print('recall=',recall)
 print('fbeta_score=',fbeta_score)
 
-<<<<<<< HEAD:src/record_collector/neural_network_model.py
 OFFICIAL_MODEL = init.MODEL_DIR + init.format_file_name('neural_network_model', 'h5')
 TEST_MODEL = 'test_model.h5'
 
-MODEL_PATH = TEST_MODEL
-=======
-MODEL_PATH = init.MODEL_DIR + init.format_file_name('neural_network_model', 'h5')
->>>>>>> 67d4dba9f59ab2f7b153f97222f4ea5cc0681a49:record_collector/neural_network_model.py
+MODEL_PATH = OFFICIAL_MODEL
 
 model.save(MODEL_PATH)
 
 loaded_model = load_model(MODEL_PATH)
-#result = loaded_model.score(X_test, y_test)
-#print(result)

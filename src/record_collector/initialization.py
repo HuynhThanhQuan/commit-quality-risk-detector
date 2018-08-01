@@ -12,7 +12,7 @@ Created on Tue Jul 10 17:19:05 2018
 HOST = '10.130.110.31'
 PORT = 27017
 DATABASE = 'CommitInfo'
-COLLECTION = 'RxJavaRecord2X'
+COLLECTION = 'RxJavaRecord2X_20180731'
 ##############################
 
 ##############################
@@ -41,7 +41,7 @@ def find_directory_path(directory):
 _db = CommitDB(HOST, PORT, DATABASE, COLLECTION)
 _repo = Repo(REPO_PATH)
 _cwd = os.getcwd()
-_timestamp = datetime.datetime.fromtimestamp(time.time()).strftime('%Y%m%d%H%M%S')
+_timestamp = datetime.datetime.fromtimestamp(time.time()).strftime('%Y%m%d_%H%M%S')
 
 DATA_DIR = find_directory_path('data')
 MODEL_DIR = find_directory_path('model')

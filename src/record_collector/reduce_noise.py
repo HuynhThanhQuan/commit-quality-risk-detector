@@ -34,6 +34,11 @@ class NoiseReduction(object):
                         if record[category] == value:
                             qualified = False
                             break
+                elif operator == '$eq':
+                    for category, value in conditions.items():
+                        if record[category] != value:
+                            qualified = False
+                            break
             if qualified == False:
                 del cloned_records[hash_]
         return cloned_records
@@ -46,10 +51,10 @@ if __name__=='__main__':
     for record in init._db._collection.find():
         records[record['hash']] = record
     
-    print(len(records.keys()))
+    print('Total', len(records.keys()))
     
     nr = NoiseReduction(records)
-    nr.set_rule({'$lt':{'num_of_files': 1}, '$ne':{'label':None}})
+    nr.set_rule({'$lt':{'total_lines': 500},'$gt':{'mod_lines':200,'total_lines': 100}, '$eq':{'label': 'non-bug'}})
     result = nr.execute_filter()
     
-    print(len(result.keys()))
+    print('Found', len(result.keys()))

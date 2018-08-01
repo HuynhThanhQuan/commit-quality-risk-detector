@@ -1,1 +1,0 @@
-# commit-quality-risk-detector

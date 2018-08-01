@@ -23,12 +23,12 @@ X = dataset[:,0:8]
 Y = dataset[:,8]
 print('Loaded model',len(Y))
 # create model
-model = KerasClassifier(build_fn=create_model, verbose=1)
+model = KerasClassifier(build_fn=create_model, verbose=0)
 # define the grid search parameters
 batch_size = [10, 20]
-epochs = [10, 50]
+epochs = [20]
 param_grid = dict(batch_size=batch_size, epochs=epochs)
-grid = GridSearchCV(estimator=model, param_grid=param_grid, n_jobs=1, scoring='recall')
+grid = GridSearchCV(estimator=model, param_grid=param_grid, n_jobs=1, scoring='accuracy')
 print('Grid model', grid)
 grid_result = grid.fit(X, Y)
 print('Fit model', grid_result)

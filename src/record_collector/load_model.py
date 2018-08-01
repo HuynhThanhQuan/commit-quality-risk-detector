@@ -17,7 +17,7 @@ X, y = stat.get_selected_features()
 
 
 TYPE = 'neural_network_model_'
-DATE = '20180730092633'
+DATE = '20180731095919'
 EXT = '.h5'
 ABSOLUTE_PATH = os.getcwd() + '\\model\\' + TYPE + DATE + EXT
 #ABSOLUTE_PATH = 'test_model.h5'

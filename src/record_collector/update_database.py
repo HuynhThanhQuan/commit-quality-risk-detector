@@ -5,6 +5,7 @@ Created on Tue Jul 17 13:57:55 2018
 @author: sogi
 """
 
+from reduce_noise import NoiseReduction
 import initialization as init
 import pandas as pd
 import string
@@ -14,7 +15,7 @@ db = init._db
 repo = init._db
 
 SUB_FOLDER = 'Snapshot\\'
-SUFFIX = '_Records_20180724'
+SUFFIX = '_Records_20180731'
 EXTENSION = '.csv'
 JSON = '_JSON'
 
@@ -73,7 +74,7 @@ if __name__ == '__main__':
     print('Warning: Database will be changed')
     print('*********************************************')
     print()
-    OWNER = 'Aka'
+    OWNER = 'Quan'
     read_and_export_csv()
     check_aggregation()
     #update_dabase()

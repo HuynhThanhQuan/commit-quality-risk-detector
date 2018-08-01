@@ -52,4 +52,4 @@ def write_to_df():
                 fout.write(str(data['num_of_files']) +',' + str(data['total_lines'])+',' + str(data['mod_lines'])+',' + str(data['label'])+',' + str(data['insertions'])+',' + str(data['deletions'])+ '\n')
         
         
-write_to_df()
+write_to_json()
