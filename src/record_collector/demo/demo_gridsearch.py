@@ -21,9 +21,9 @@ dataset = numpy.loadtxt("pima-indians-diabetes_reduced.csv", delimiter=",")
 # split into input (X) and output (Y) variables
 X = dataset[:,0:8]
 Y = dataset[:,8]
-print('Loaded model',len(Y))
+print('Loaded model',len(Y))  #30 data 
 # create model
-model = KerasClassifier(build_fn=create_model, verbose=0)
+model = KerasClassifier(build_fn=create_model, verbose=1)
 # define the grid search parameters
 batch_size = [10, 20]
 epochs = [20]

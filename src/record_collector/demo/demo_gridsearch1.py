@@ -18,6 +18,9 @@ from sklearn.metrics import recall_score
 from sklearn.metrics import f1_score
 from sklearn.metrics import confusion_matrix
 import pandas as pd
+import warnings
+
+warnings.filterwarnings("ignore")
 
 # Function to create model, required for KerasClassifier
 def create_model():
@@ -36,15 +39,14 @@ dataset = np.loadtxt("pima-indians-diabetes_reduced.csv", delimiter=",")
 # split into input (X) and output (Y) variables
 X = dataset[:,0:8]
 Y = dataset[:,8]
-print('Loaded model',len(Y))
-
-
+print('Loaded model')
+print('Model has', len(Y), 'data')
 
 # create model
-model = KerasClassifier(build_fn=create_model, verbose=0)
+model = KerasClassifier(build_fn=create_model, verbose=1)
 # define the grid search parameters
 batch_size = [10, 20]
-epochs = [20, 50]
+epochs = [10, 20]
 param_grid = dict(batch_size=batch_size, epochs=epochs)
 scoring = {'accuracy': make_scorer(accuracy_score), 
            'precision': make_scorer(precision_score),

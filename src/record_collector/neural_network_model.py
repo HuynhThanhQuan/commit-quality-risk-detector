@@ -48,4 +48,4 @@ MODEL_PATH = OFFICIAL_MODEL
 
 model.save(MODEL_PATH)
 
-loaded_model = load_model(MODEL_PATH)
+#loaded_model = load_model(MODEL_PATH)
